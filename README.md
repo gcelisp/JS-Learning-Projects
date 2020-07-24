@@ -1,3 +1,3 @@
-# JS-Learning-Projects
+# JS-Tip-Calculator
 
-This repository has been created to manage the Javascript Projects I have been working on for learning purposes. 
+Little JS funcionality to calculate tips based on the total amount to be paid by a customer and a certain percentage.
