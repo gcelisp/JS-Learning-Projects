@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tip Calculator</title>
+    <link rel="icon" href="tip_icon.png">
+    <link rel="stylesheet" href="tables.css">
+    <link rel="stylesheet" href="../OnsenUI-dist-2.10.10/css/onsenui.css">
+    <link rel="stylesheet" href="../OnsenUI-dist-2.10.10/css/onsen-css-components.min.css">
+    <script src="../OnsenUI-dist-2.10.10/js/onsenui.min.js"></script>
+      <!--http://zavoloklom.github.io/material-design-iconic-font/icons.html#application-->
+
+  </head>
+  <body style="font-size: 11pt;">
+      <ons-page>
+        <ons-toolbar>
+            <div class="center">Tip Calculator</div>
+        </ons-toolbar>
+        
+        
+        <ons-tabbar swipeable position="top">
+            <ons-tab page="tip_calculator.html" label="Tip Calculator" icon="md-money" active>
+            </ons-tab>
+            <ons-tab page="tip_summary.html" label="Summary" icon="md-format-subject">
+            </ons-tab>
+            
+            
+        </ons-tabbar>
+      </ons-page>
+      
+      <template id="tip_calculator.html">
+          <ons-page id="Tip Calculator">
+             <section style="padding: 40px;">
+                 <div style="margin-bottom: 40px;">
+                    <ons-input placeholder="Bill Amount" modifier="material underbar" min="0" style="width:100%" required id="billAmount" onkeypress="return CheckNumeric()" onkeyup="FormatCurrency(this)" float></ons-input>
+                 </div>
+                 <div style="margin-bottom: 40px;">
+                     <ons-range style="width: 75%;" value="20" min="0" max="50" step="0.5" id="tipRange"></ons-range>
+                   <output id="percentOut">20%</output>
+                 </div>
+                <div><ons-button modifier="large" id="btnCalculate">Calculate Tip</ons-button></div>
+             </section>
+             <section style="padding-left: 40px; padding-top: 5px;">
+                <output id="result"></output>
+            </section>
+          </ons-page>
+      </template>
+      
+      <template id="tip_summary.html">
+          <ons-page id="Summary">
+            <div id="dv_summary">
+                <table id="tb_summary">
+                    <thead>
+                        <tr>
+                            <th>Nro.</th>
+                            <th>Bill amount</th>
+                            <th>Tip %</th>
+                            <th>Tip amount</th>
+                            <th>Total Bill</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_summary">
+                     <!--  <tr id="tr_empty">
+                            <td id="td_empty" colspan="5" style="display: contents"><br/>No bills have been entered yet</td>
+                        </tr>-->
+                        
+                    </tbody>
+                    <tfoot id="tfoot_summary">
+                    <!--   <tr>
+                            <td>TOTAL</td>
+                            <td>$56,000</td>
+                            <td>Average tip: 50%</td>
+                            <td>$165,800</td>
+                            <td>$235,800</td>
+                        
+                        </tr>-->
+                    </tfoot>
+                </table>
+            <!--Nro, Bill amount, Tip %, Tip amount, Total bill-->
+            </div>
+              <div id="dv_noRecords" style="text-align: center; margin-top: 20px;">No bills have been entered yet</div>
+          </ons-page>
+      </template>
+      <script src="tip.js"></script>
+      <script src="formatCurrency.js"></script>
+  </body>
+</html>
